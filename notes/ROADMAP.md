@@ -134,4 +134,4 @@ attention-rag/
 #### [ ] Stage 10: Agent + MCP (Bonus)
 - [ ] Build agent wrapper with retrieval tools
 - [ ] Create optional MCP server definition
-- [ ] Create `notes/stage10.md` with tool safety, agent constraints, and interview Q&As
+- [ ] Create `notes/stage10.md` witsh tool safety, agent constraints, and interview Q&A
