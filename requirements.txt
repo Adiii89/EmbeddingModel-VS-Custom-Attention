@@ -1,0 +1,22 @@
+# Core ML & Deep Learning
+torch>=2.0.0
+transformers>=4.38.0
+sentence-transformers>=2.5.0
+
+# Vector Search
+faiss-cpu>=1.8.0
+numpy>=1.24.0
+
+# Graph Orchestration & LLM
+langgraph>=0.2.0
+langchain-core>=0.3.0
+langchain-community>=0.3.0
+
+# PDF Ingestion & Parsing
+pymupdf>=1.24.0
+
+# UI & Utilities
+streamlit>=1.35.0
+python-dotenv>=1.0.0
+tqdm>=4.66.0
+matplotlib>=3.8.0

@@ -1,0 +1,23 @@
+{
+  "semantic": {
+    "recall@1": 0.5,
+    "recall@2": 0.6666666666666666,
+    "recall@3": 0.6666666666666666,
+    "mrr": 0.5833333333333334,
+    "latency_mean_ms": 29.25893889429668,
+    "latency_p95_ms": 32.4416333460249,
+    "embedding_dim": 384,
+    "parameters": "22.7M"
+  },
+  "attention": {
+    "recall@1": 0.3333333333333333,
+    "recall@2": 0.5,
+    "recall@3": 0.6666666666666666,
+    "mrr": 0.47222222222222215,
+    "latency_mean_ms": 2.410361142311659,
+    "latency_p95_ms": 3.106200136244297,
+    "embedding_dim": 128,
+    "parameters": "4.0M"
+  },
+  "mean_jaccard_overlap": 0.39999999999999997
+}

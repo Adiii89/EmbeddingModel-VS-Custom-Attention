@@ -1,0 +1,32 @@
+[
+  {
+    "query": "What is the self-attention formula and how are Q, K, V matrices used?",
+    "positive": "Self-attention computes similarity weights across all token pairs in a sequence using query (Q), key (K), and value (V) matrices. By computing Attention(Q, K, V) = softmax(Q K^T / sqrt(d_k)) V, the model captures fine-grained contextual interactions between words.",
+    "negative": "We evaluate retrieval performance using Recall@K and Mean Reciprocal Rank (MRR). Latency benchmarks compare execution time across CPU and GPU inference environments."
+  },
+  {
+    "query": "What is Retrieval-Augmented Generation (RAG) and why is it used?",
+    "positive": "Retrieval-Augmented Generation (RAG) combines external knowledge retrieval with neural text generation. By grounding generation with retrieved vector embeddings, the model provides accurate, verifiable citations and prevents hallucinations.",
+    "negative": "A multi-head attention layer runs self-attention in parallel across multiple representation subspaces, allowing the model to attend to information at different positions."
+  },
+  {
+    "query": "How does multi-head attention work in parallel across subspaces?",
+    "positive": "A multi-head attention layer runs self-attention computation in parallel across multiple representation subspaces, allowing the model to jointly attend to information at different positions.",
+    "negative": "Traditional semantic search uses pre-trained sentence transformer models such as all-MiniLM-L6-v2 to map passages into dense embedding vectors."
+  },
+  {
+    "query": "What evaluation metrics measure retrieval quality?",
+    "positive": "We evaluate retrieval performance using Recall@K and Mean Reciprocal Rank (MRR). Recall measures the proportion of relevant chunks in top-K candidates. MRR measures the reciprocal of the rank position of the first relevant chunk.",
+    "negative": "Self-attention computes similarity weights across all token pairs in a sequence using query (Q), key (K), and value (V) matrices."
+  },
+  {
+    "query": "Why do traditional LLMs hallucinate without RAG?",
+    "positive": "Traditional LLMs rely solely on their internal training data, which can become outdated and leads to hallucinations when asked about domain-specific facts without external knowledge grounding.",
+    "negative": "Contrastive learning pulls positive document chunks closer to the query while pushing hard negative distractor chunks farther apart in Euclidean space."
+  },
+  {
+    "query": "How does contrastive triplet learning train custom encoders?",
+    "positive": "Contrastive learning pulls positive document chunks closer to the query while pushing hard negative distractor chunks farther apart in Euclidean space using a margin boundary.",
+    "negative": "PyMuPDF is a Python binding to the high-performance C library MuPDF, extracting text structured by blocks, lines, and spans with bounding box coordinates."
+  }
+]
