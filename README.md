@@ -1,5 +1,12 @@
 # 🧠 Attention-RAG: Dense Semantic Search vs. Custom Multi-Head Attention in LangGraph
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://adiii89-embeddingmodel-vs-custom-attention-app-ygcewi.streamlit.app/)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-orange.svg)](https://pytorch.org/)
+[![LangGraph](https://img.shields.io/badge/LangGraph-0.2+-green.svg)](https://github.com/langchain-ai/langgraph)
+
+> 🚀 **Live Interactive Demo:** [https://adiii89-embeddingmodel-vs-custom-attention-app-ygcewi.streamlit.app/](https://adiii89-embeddingmodel-vs-custom-attention-app-ygcewi.streamlit.app/)
+
 A scientific, end-to-end Retrieval-Augmented Generation (RAG) system and empirical research benchmark comparing **standard pre-trained Sentence Transformers (`all-MiniLM-L6-v2`)** against a **custom-trained PyTorch Multi-Head Self-Attention Encoder** orchestrated with **LangGraph**.
 
 ---
@@ -7,7 +14,7 @@ A scientific, end-to-end Retrieval-Augmented Generation (RAG) system and empiric
 ## 🌟 Overview & Key Highlights
 
 - **Custom PyTorch Multi-Head Attention Encoder (`embeddings/attention_encoder.py`):** Built from scratch with token & positional embeddings, 4-head self-attention ($d_k = 32$), LayerNorm/residual connections, masked mean pooling, and L2 normalization ($128$-dim unit vectors).
-- **Contrastive Triplet Training (`embeddings/train_attention.py`):** Trained on Anchor, Positive, and Hard Negative triplets with Triplet Margin Loss ($\alpha = 0.4$) and AdamW optimizer.
+- **Contrastive Triplet Training:** Trained on Anchor, Positive, and Hard Negative triplets with Triplet Margin Loss ($\alpha = 0.4$) and AdamW optimizer.
 - **Dynamic LangGraph Pipeline (`graph/build_graph.py`):** Orchestrates multi-mode retrieval with conditional routing and parallel fan-out / fan-in comparison topology.
 - **Side-by-Side Live Benchmarking:** Quantitative evaluation measuring Recall@K ($K=1,2,3$), Mean Reciprocal Rank (MRR), search latency, vector memory footprint, and Jaccard chunk overlap.
 - **Interactive Streamlit Web Dashboard (`app.py`):** Multi-mode RAG query interface with dynamic PDF ingestion, side-by-side chunk candidate inspection, and live evaluation.
@@ -95,18 +102,13 @@ Attention_RAG/
 │   ├── attention_encoder.py       # Custom PyTorch Multi-Head Self-Attention model
 │   ├── attention_encoder.pt       # Trained attention model weights checkpoint
 │   ├── attention_retriever.py     # FAISS IndexFlatIP retriever using AttentionEncoder
-│   ├── semantic_retriever.py      # FAISS IndexFlatIP retriever using all-MiniLM-L6-v2
-│   └── train_attention.py         # Triplet training script
+│   └── semantic_retriever.py      # FAISS IndexFlatIP retriever using all-MiniLM-L6-v2
 │
-├── graph/
-│   ├── build_graph.py             # LangGraph state graph assembly & execution
-│   ├── edges.py                   # Dynamic conditional routing & parallel fan-out
-│   ├── nodes.py                   # Node functions (query, retrieval, comparison, context, generation)
-│   └── state.py                   # TypedDict RAGState schema
-│
-└── notes/                         # Stage-by-stage design notes and interview Q&As
-    ├── stage0.md to stage9.md
-    └── training_the_attention_model.md
+└── graph/
+    ├── build_graph.py             # LangGraph state graph assembly & execution
+    ├── edges.py                   # Dynamic conditional routing & parallel fan-out
+    ├── nodes.py                   # Node functions (query, retrieval, comparison, context, generation)
+    └── state.py                   # TypedDict RAGState schema
 ```
 
 ---
@@ -115,8 +117,8 @@ Attention_RAG/
 
 ### 1. Clone & Setup Virtual Environment
 ```bash
-git clone https://github.com/your-username/Attention_RAG.git
-cd Attention_RAG
+git clone https://github.com/Adiii89/EmbeddingModel-VS-Custom-Attention.git
+cd EmbeddingModel-VS-Custom-Attention
 
 python -m venv .venv
 # On Windows:
@@ -143,11 +145,11 @@ OPENAI_API_KEY=your_openai_api_key
 python evaluate.py
 ```
 
-### 4. Launch the Streamlit Web UI
+### 4. Launch the Streamlit Web UI Locally
 ```bash
 streamlit run app.py
 ```
-Open **[http://localhost:8501](http://localhost:8501)** in your browser.
+Open **[http://localhost:8501](http://localhost:8501)** in your browser or visit the **[Live Demo](https://adiii89-embeddingmodel-vs-custom-attention-app-ygcewi.streamlit.app/)**.
 
 ---
 
@@ -158,4 +160,4 @@ Open **[http://localhost:8501](http://localhost:8501)** in your browser.
 - **Orchestration:** LangGraph, LangChain Core
 - **Document Ingestion:** PyMuPDF (`fitz`)
 - **LLM APIs:** Google GenAI (`gemini-2.0-flash`), Groq (`llama-3.3-70b`), OpenAI (`gpt-4o-mini`)
-- **Frontend & Visualization:** Streamlit, NumPy, Matplotlib
+- **Frontend & Visualization:** Streamlit, NumPy
